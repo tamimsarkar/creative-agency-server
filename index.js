@@ -12,7 +12,7 @@ app.use(cors());
 app.use(express.static('services'));
 app.use(fileUpload());
 
-var uri = `mongodb://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0-shard-00-00.iwehv.mongodb.net:27017,cluster0-shard-00-01.iwehv.mongodb.net:27017,cluster0-shard-00-02.iwehv.mongodb.net:27017/${process.env.DB_NAME}?ssl=true&replicaSet=atlas-w82rim-shard-0&authSource=admin&retryWrites=true&w=majority`;
+var uri = 'mongodb://tamimsarkar:z5JkS3qGpYG4Eqag@cluster0-shard-00-00.iwehv.mongodb.net:27017,cluster0-shard-00-01.iwehv.mongodb.net:27017,cluster0-shard-00-02.iwehv.mongodb.net:27017/agencyDB?ssl=true&replicaSet=atlas-w82rim-shard-0&authSource=admin&retryWrites=true&w=majority';
 MongoClient.connect(uri, function (err, client) {
     const serviceCollection = client.db("agencyDB").collection("services");
     const ordersCollection = client.db("agencyDB").collection("orders");
